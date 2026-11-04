@@ -84,16 +84,16 @@ Memória: 2007139 bytes
 
 Teste 1:
 Menor tempo: 0.020382 segundos
-Tempo médio: 0.021004 segundos
+/Tempo médio: 0.021004 segundos
 
 Teste 2:
 Menor tempo: 0.020583 segundos
-Tempo médio: 0.023879 segundos
+/Tempo médio: 0.023879 segundos
 
 Teste 3:
 Menor tempo: 0.041690 segundos
-Tempo médio: 0.044159 segundos
+/Tempo médio: 0.044159 segundos
 
 Teste 4:
 Menor tempo: 0.020518 segundos
-Tempo médio: 0.021125 segundos
+/Tempo médio: 0.021125 segundos
