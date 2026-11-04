@@ -1,103 +1,60 @@
 tupla_nomes = ("João", "Pedro", "Ana")
 tupla_notas = (8.5, 7.5, 10.0)
 
-# ---------------------------------------------------------
-# 1. CONSTRUÇÃO DO DICIONÁRIO A PARTIR DAS TUPLAS
-# ---------------------------------------------------------
 def criar_dicionario_de_tuplas(t_nomes, t_notas):
-    """
-    Usa a função zip() para combinar as tuplas de nomes e notas 
-    e converte o resultado em um dicionário (chave: valor).
-    """
     return dict(zip(t_nomes, t_notas))
 
-# ---------------------------------------------------------
-# 2. FUNÇÕES PARA ADICIONAR, REMOVER E MODIFICAR REGISTROS
-# ---------------------------------------------------------
 def adicionar_ou_modificar(dicionario, nome, nota):
-    """
-    Adiciona um novo aluno ou atualiza a nota caso ele já exista,
-    evitando chaves duplicadas.
-    """
     dicionario[nome] = float(nota)
-    print(f"Registro de '{nome}' (Nota: {nota}) atualizado/adicionado com sucesso!")
+    print(f"Registro de '{nome}' atualizado/adicionado, boa sorte!(Galo).")
 
 def remover_aluno(dicionario, nome):
-    """Remove um aluno do dicionário pelo nome."""
     if nome in dicionario:
-        removido = dicionario.pop(nome)
-        print(f"Aluno(a) '{nome}' foi removido(a) com sucesso.")
+        dicionario.pop(nome)
+        print(f"Aluno(a) '{nome}' removido(a)(morto) com sucesso.")
     else:
-        print(f"Erro: Aluno(a) '{nome}' não encontrado(a).")
+        print(f"Erro: Aluno(a) '{nome}' não encontrado, foi de vasco.")
 
-# ---------------------------------------------------------
-# 3. FUNÇÕES DE CONSULTA (Verificar e Consultar Nota)
-# ---------------------------------------------------------
 def verificar_aluno(dicionario, nome):
-    """Retorna True se o aluno estiver cadastrado, ou False caso contrário."""
     return nome in dicionario
 
 def consultar_nota_aluno(dicionario, nome):
-    """Busca e exibe a nota de um aluno específico pelo nome."""
     if verificar_aluno(dicionario, nome):
         print(f"[Consulta] O(A) aluno(a) '{nome}' possui a nota: {dicionario[nome]}")
     else:
-        print(f"[Consulta] O(A) aluno(a) '{nome}' não está cadastrado(a).")
+        print(f"[Consulta] O(A) aluno(a) '{nome}' não encontrado, foi de vasco.")
 
-# ---------------------------------------------------------
-# 4. FUNÇÃO PARA LISTAR TODOS OS ALUNOS E NOTAS
-# ---------------------------------------------------------
 def listar_alunos(dicionario):
-    """Exibe todos os alunos e suas respectivas notas armazenadas no dicionário."""
     print("\n--- REGISTRO DE ALUNOS (DICIONÁRIO) ---")
     if not dicionario:
-        print("O dicionário está vazio.")
+        print("O dicionário está vazio,F.")
         return
-    
     for nome, nota in dicionario.items():
         print(f"Aluno: {nome:<15} | Nota: {nota}")
     print("-" * 33)
 
-# ---------------------------------------------------------
-# 5. FUNÇÃO PARA CALCULAR A MÉDIA GERAL
-# ---------------------------------------------------------
 def calcular_media_geral(dicionario):
-    """Calcula e exibe a média aritmética de todas as notas do dicionário."""
     if not dicionario:
-        print("\nNão há notas cadastradas para calcular a média.")
+        print("\nNão há notas cadastradas para calcular a média, sobrou nada.")
         return 0.0
-    
     total_notas = sum(dicionario.values())
     quantidade = len(dicionario)
     media = total_notas / quantidade
-    
-    print(f"\nMédia geral da turma: {media:.2f}")
+    print(f"Média geral da turma, sobrou algo: {media:.2f}")
     return media
 
-
-# =========================================================
-# EXEMPLO DE EXECUÇÃO / TESTE DO CÓDIGO
-# =========================================================
-
-# 1. Criando o dicionário inicial com base nas tuplas da Atividade 2
 turma_dict = criar_dicionario_de_tuplas(tupla_nomes, tupla_notas)
 
-# 2. Adicionando um novo aluno e modificando a nota de um existente
 adicionar_ou_modificar(turma_dict, "Carlos", 8.0)
-adicionar_ou_modificar(turma_dict, "João", 9.0)  # Modifica a nota do João de 8.5 para 9.0
+adicionar_ou_modificar(turma_dict, "João", 9.0)
 
-# 3. Consultando registros e verificando existência
-consultar_nota_aluno(turma_dict, "Ana")
-print(f"O(A) aluno(a) 'Pedro' está cadastrado(a)? {verificar_aluno(turma_dict, 'Pedro')}")
+consultar_nota_aluno(turma_dict, "carlos")
+print(f"O aluno(a) 'Pedro' está(vivo) cadastrado? {verificar_aluno(turma_dict, 'Pedro')}")
 
-# 4. Listando todos os alunos e notas
 listar_alunos(turma_dict)
-
-# 5. Calculando a média geral
 calcular_media_geral(turma_dict)
 
-# Testando a remoção
-print("\n--- Removendo o aluno Carlos ---")
+print("\n--- Removendo o aluno Carlos(morto) ---")
 remover_aluno(turma_dict, "Carlos")
 listar_alunos(turma_dict)
 calcular_media_geral(turma_dict)
