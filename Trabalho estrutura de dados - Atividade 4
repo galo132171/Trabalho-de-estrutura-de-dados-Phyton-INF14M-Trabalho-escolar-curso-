@@ -1,79 +1,33 @@
 import time
 
-# Tamanho da entrada
-n = 1000  
-
-# Preparação dos dados
+n = 1000
 lista = list(range(n))
 tupla = tuple(range(n))
 dicionario = {i: f"val_{i}" for i in range(n)}
 
-print("=== INICIANDO MEDIÇÃO DE TEMPO DE EXECUÇÃO ===")
-
-
-# 1. TESTE COM LISTA
-
-inicio = time.perf_counter()
-
-for i in range(n):
-    # Consulta / Acesso direto por índice
-    elemento = lista[50]
-    
-    # Busca sequencial (verificar se o elemento existe na lista)
-    encontrado = 50 in lista
-    
-    # Alterar elemento
-    lista[50] = 999
-    
-    # Adicionar elemento no final
-    lista.append(9999)
-    
-    # Remover elemento do final
+t1 = time.perf_counter()
+for _ in range(n):
+    _ = lista[50]
+    _ = 50 in lista
+    lista[50] = 0
+    lista.append(0)
     lista.pop()
+t2 = time.perf_counter()
+print(f"Tempo Lista: {t2 - t1:.6f} s")
 
-fim = time.perf_counter()
-tempo_lista = fim - inicio
-print(f"Tempo de execução (Lista): {tempo_lista:.6f} segundos")
+t1 = time.perf_counter()
+for _ in range(n):
+    _ = tupla[50]
+    _ = 50 in tupla
+t2 = time.perf_counter()
+print(f"Tempo Tupla: {t2 - t1:.6f} s")
 
-
-
-# 2. TESTE COM TUPLA 
-
-inicio = time.perf_counter()
-
-for i in range(n):
-    # Consulta / Acesso direto por índice
-    elemento = tupla[50]
-    
-    # Busca sequencial
-    encontrado = 50 in tupla
-
-fim = time.perf_counter()
-tempo_tupla = fim - inicio
-print(f"Tempo de execução (Tupla): {tempo_tupla:.6f} segundos")
-
-
-
-# 3. TESTE COM DICIONÁRIO
-
-inicio = time.perf_counter()
-
-for i in range(n):
-    # Consulta / Acesso direto por chave
-    elemento = dicionario.get(50)
-    
-    # Busca sequencial por chave
-    encontrado = 50 in dicionario
-    
-    # Alterar elemento
-    dicionario[50] = "novo_valor"
-    
-    # Adicionar novo par chave-valor
-    dicionario[9999] = "teste"
-    
-    # Remover elemento
+t1 = time.perf_counter()
+for _ in range(n):
+    _ = dicionario.get(50)
+    _ = 50 in dicionario
+    dicionario[50] = 0
+    dicionario[9999] = 0
     del dicionario[9999]
-
-fim = time.perf_counter()
-tempo_dicionario = fim - inicio
-print(f"Tempo de execução (Dicionário): {tempo_dicionario:.6f} segundos")
+t2 = time.perf_counter()
+print(f"Tempo Dicionário: {t2 - t1:.6f} s")
