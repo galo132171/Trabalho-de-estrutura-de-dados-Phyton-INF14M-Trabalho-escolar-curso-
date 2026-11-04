@@ -74,8 +74,21 @@ Pilha | 50000 elementos
 Tempo: 0.163367 segundos
 Memória: 2036248 bytes
 
+Fila | 50000 elementos
 Tempo: 0.14783 segundos
 Memória: 2007139 bytes
 
-#Atividade 7:
 
+#Atividade 7:
+Teste 1:
+Menor tempo: 0.020382 segundos
+Tempo médio: 0.021004 segundos
+Teste 2:
+Menor tempo: 0.020583 segundos
+Tempo médio: 0.023879 segundos
+Teste 3:
+Menor tempo: 0.041690 segundos
+Tempo médio: 0.044159 segundos
+Teste 4:
+Menor tempo: 0.020518 segundos
+Tempo médio: 0.021125 segundos
