@@ -1,5 +1,6 @@
 # Trabalho-de-estrutura-de-dados-Phyton-
 Projetos em Phyton
+
 #Atividade 4:
 
 Código em lista demorou: 0.027664 segundos
