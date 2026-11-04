@@ -8,6 +8,7 @@ Código em tulpas demorou: 0.002374 segundos
 Código em dicionário demorou: 0.000959 segundos
 
 #Atividade 5:
+
 Dados da lista:Memória atual:0.032383 MiB/Pico de memória:0.051685 MiB
 Dados da Tupla:Memória atual:0.031293 MiB/Pico de Memória:0.050573 MiB
 Dados do Dicionário:Memória atual:0.105066 MiB/Pico de memória:0.124452 MiB
@@ -80,15 +81,19 @@ Memória: 2007139 bytes
 
 
 #Atividade 7:
+
 Teste 1:
 Menor tempo: 0.020382 segundos
 Tempo médio: 0.021004 segundos
+
 Teste 2:
 Menor tempo: 0.020583 segundos
 Tempo médio: 0.023879 segundos
+
 Teste 3:
 Menor tempo: 0.041690 segundos
 Tempo médio: 0.044159 segundos
+
 Teste 4:
 Menor tempo: 0.020518 segundos
 Tempo médio: 0.021125 segundos
