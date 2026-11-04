@@ -1,103 +1,52 @@
-# 1. Criação das duas listas vazias
+# Atividade 2
 nomes = []
 notas = []
 
-
-# FUNÇÕES PARA MANIPULAÇÃO DAS LISTAS
-
-
-def adicionar_aluno(nome, nota):
-    """Adiciona um novo nome e nota às listas correspondentes."""
+def adicionar(nome, nota):
     nomes.append(nome)
     notas.append(float(nota))
-    print(f"Aluno(a) '{nome}' com nota {nota} adicionado(a) com sucesso!")
+    print(f"Aluno {nome} adicionado, boa sorte!(Galo).")
 
-def remover_aluno(nome):
-    """Remove um aluno e sua nota mantendo a ordem/sincronia."""
+def remover(nome):
     if nome in nomes:
-        indice = nomes.index(nome)
-        nomes.pop(indice)
-        nota_removida = notas.pop(indice)
-        print(f"Aluno(a) '{nome}' (Nota: {nota_removida}) foi removido(a).")
+        i = nomes.index(nome)
+        nomes.pop(i)
+        notas.pop(i)
+        print(f"Aluno {nome} removido.")
     else:
-        print(f"Erro: Aluno(a) '{nome}' não encontrado(a).")
+        print("Aluno não encontrado, foi de vasco.")
 
-def modificar_nota(nome, nova_nota):
-    """Modifica a nota de um aluno existente."""
+def modificar(nome, nova_nota):
     if nome in nomes:
-        indice = nomes.index(nome)
-        nota_antiga = notas[indice]
-        notas[indice] = float(nova_nota)
-        print(f"Nota de '{nome}' alterada de {nota_antiga} para {nova_nota}.")
+        i = nomes.index(nome)
+        notas[i] = float(nova_nota)
+        print(f"Nota de {nome} alterada para {nova_nota}.")
     else:
-        print(f"Erro: Aluno(a) '{nome}' não encontrado(a).")
+        print("Aluno não encontrado,foi de vasco")
 
+def para_tuplas():
+    return tuple(nomes), tuple(notas)
 
-
-# FUNÇÃO PARA CONVERSÃO EM TUPLAS
-
-
-def converter_para_tuplas(lista_nomes, lista_notas):
-    """
-    Converte as listas de nomes e notas em tuplas imutáveis,
-    mantendo a correspondência entre cada nome e nota.
-    """
-    tupla_nomes = tuple(lista_nomes)
-    tupla_notas = tuple(lista_notas)
-    return tupla_nomes, tupla_notas
-
-
-
-# FUNÇÕES PARA CONSULTAR OS DADOS NAS TUPLAS
-
-
-def visualizar_todos(t_nomes, t_notas):
-    """Exibe todos os nomes e suas respectivas notas armazenados nas tuplas."""
-    print("\n--- LISTA DE NOTAS DOS ALUNOS ---")
-    if not t_nomes:
-        print("Nenhum registro encontrado.")
-        return
-    
-    # Percorre as tuplas mantendo a correspondência via índice
+def mostrar(t_nomes, t_notas):
+    print("\n--- Lista de Alunos ---")
     for i in range(len(t_nomes)):
-        print(f"Aluno: {t_nomes[i]:<15} | Nota: {t_notas[i]}")
-    print("-" * 33)
+        print(f"Nome: {t_nomes[i]} | Nota: {t_notas[i]}")
 
-def consultar_nota_aluno(t_nomes, t_notas, nome_busca):
-    """Busca e exibe a nota de um aluno específico dentro das tuplas."""
-    if nome_busca in t_nomes:
-        indice = t_nomes.index(nome_busca)
-        print(f"\n[Consulta] O(A) aluno(a) '{nome_busca}' obteve a nota: {t_notas[indice]}")
+def consultar(t_nomes, t_notas, busca):
+    if busca in t_nomes:
+        i = t_nomes.index(busca)
+        print(f"Nota do(a) {busca}: {t_notas[i]}")
     else:
-        print(f"\n[Consulta] O(A) aluno(a) '{nome_busca}' não foi encontrado(a).")
+        print("Aluno não encontrado,doi de vasco")
 
+adicionar("João", 8.5)
+adicionar("Maria", 9.0)
+adicionar("Pedro", 7.0)
 
+modificar("Pedro", 7.5)
+remover("Maria")
 
-# EXEMPLO DE EXECUÇÃO / TESTE DO CÓDIGO
+t_nomes, t_notas = para_tuplas()
 
-
-print("=== 1. Adicionando Elementos ===")
-adicionar_aluno("João", 8.5)
-adicionar_aluno("Maria", 9.0)
-adicionar_aluno("Pedro", 7.0)
-adicionar_aluno("Ana", 10.0)
-
-print("\n=== 2. Modificando Elemento ===")
-modificar_nota("Pedro", 7.5)
-
-print("\n=== 3. Removendo Elemento ===")
-remover_aluno("Maria")
-
-print("\n=== 4. Convertendo Listas em Tuplas ===")
-tupla_nomes, tupla_notas = converter_para_tuplas(nomes, notas)
-
-print(f"Tupla de Nomes: {tupla_nomes}")
-print(f"Tupla de Notas: {tupla_notas}")
-
-print("\n=== 5. Consultando Dados nas Tuplas ===")
-# Exibe a lista completa cadastrada
-visualizar_todos(tupla_nomes, tupla_notas)
-
-# Consulta aluno individual
-consultar_nota_aluno(tupla_nomes, tupla_notas, "João")
-consultar_nota_aluno(tupla_nomes, tupla_notas, "Maria")
+mostrar(t_nomes, t_notas)
+consultar(t_nomes, t_notas, "carlos")
