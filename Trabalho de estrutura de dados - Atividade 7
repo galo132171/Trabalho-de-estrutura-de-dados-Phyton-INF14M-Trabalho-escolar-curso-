@@ -1,0 +1,28 @@
+# Atividade 7 - Desempenho temporal em Matriz
+import time
+
+linhas = 300
+colunas = 600
+
+matriz = []
+for i in range(linhas):
+    linha = []
+    for j in range(colunas):
+        linha.append(i + j)
+    matriz.append(linha)
+
+for linha in matriz:
+    for elemento in linha:
+        _ = elemento * 1
+
+tempos = []
+for _ in range(5):
+    inicio = time.perf_counter()
+    for linha in matriz:
+        for elemento in linha:
+            _ = elemento * 2
+    fim = time.perf_counter()
+    tempos.append(fim - inicio)
+
+print(f"Menor tempo: {min(tempos):.6f} segundos")
+print(f"Tempo médio: {sum(tempos) / len(tempos):.6f} segundos")
